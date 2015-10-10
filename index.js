@@ -1,5 +1,5 @@
 const CheckpointStore = require('checkpoint-store')
-const ZERO_ROOT = '0x00000000000000000000000000000000'
+const ZERO_ROOT = '0000000000000000000000000000000000000000000000000000000000000000'
 
 module.exports = FakeTree
 
@@ -7,7 +7,7 @@ module.exports = FakeTree
 function FakeTree(initState) {
   var self = this
   self._tree = new CheckpointStore(initState)
-  self.root = ZERO_ROOT
+  self.root = new Buffer(ZERO_ROOT, 'hex')
 }
 
 FakeTree.prototype.get = function(key, cb){
